@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/new_responsible"
+        android:icon="@drawable/ic_baseline_resposiles_24"
+        android:title="+Responsáveis"
+        android:visible="true" />
+    <item
+        android:id="@+id/new_transaction"
+        android:icon="@drawable/ic_baseline_transaction_card_24"
+        android:title="+Transações" />
+    <item
+        android:id="@+id/new_account"
+        android:icon="@drawable/ic_baseline_account_balance_wallet_24"
+        android:title="+Conta" />
+    <item
+        android:id="@+id/configurations"
+        android:icon="@drawable/ic_baseline_miscellaneous_services_24"
+        android:title="Configurações" />
+</menu>

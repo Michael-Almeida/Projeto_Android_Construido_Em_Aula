@@ -1,0 +1,10 @@
+   Chamar tela para cadastro de responsavel chamado: ResponsibleActivity
+- ViewModel
+- Databinding
+- Quando Clicar em Salvar deve mostrar o nome em um Toast e retornar para a
+
+
+tela principal
+- Tipo do Botao para salvar e o FloatActionButton
+- Link do Material Design para App:
+    https://material.io/components/bottom-navigation/android#bottom-navigation-bar

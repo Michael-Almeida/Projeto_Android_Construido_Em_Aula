@@ -18,10 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
         Picasso.get()
             .load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbGHM8jf1drzKNAtzFYdPGjX6-hS3ojvulNA&usqp=CAU")
             .into(imageView)
-    }
 
-
-    override fun onResume() {
 
         //chamar para dar uma parada antes de chamar a próxima tela
         GlobalScope.launch {
@@ -33,6 +30,6 @@ class SplashScreenActivity : AppCompatActivity() {
 
             finish()
         }
-        super.onResume()
     }
 }
+

@@ -17,17 +17,15 @@ class LoginActivity : AppCompatActivity() {
 
 
     private val loginViewModel: LoginViewModel by lazy {
-        ViewModelProvider(this, LoginViewModelFactory)[LoginViewModel::class.java]
+        ViewModelProvider(this, LoginViewModelFactory).get(LoginViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //      setContentView(R.layout.activity_login)
 
-        val loginBinding: ActivityLoginBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_login)
+        val loginBinding: ActivityLoginBinding = DataBindingUtil.setContentView(
+            this, R.layout.activity_login)
         loginBinding.viewModel = loginViewModel
-
         redirectToMainActivity()
         loginViewModel.userLogin = "admin@admin.com"
         loginViewModel.userPassword = "pass"
@@ -44,14 +42,17 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    //validação
     fun doLogin(view: View) {
         if (loginViewModel.formIsValid()) {
             loginViewModel.doLogin()
 //
         } else {
             when {
-                loginViewModel.userPassword.isBlank() -> passwordET.error = getString(R.string.password_blank)
-                loginViewModel.userLogin.isBlank() -> usernameET.error = getString(R.string.email_blank)
+                loginViewModel.userPassword.isBlank() -> passwordET.error =
+                    getString(R.string.password_blank)
+                loginViewModel.userLogin.isBlank() -> usernameET.error =
+                    getString(R.string.email_blank)
                 else -> usernameET.error = getString(R.string.email_invalid)
             }
         }

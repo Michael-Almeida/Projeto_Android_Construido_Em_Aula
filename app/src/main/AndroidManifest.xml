@@ -12,12 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplicacaoDeControle">
 
-        //Login Activity
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.ResponsibleActivity"
             android:exported="false" />
 
-        //Splash
         <activity
             android:name=".view.SplashScreenActivity"
             android:exported="true"
@@ -29,7 +27,10 @@
             </intent-filter>
         </activity>
 
-        //Main Activity
+        <activity
+            android:name=".view.LoginActivity"
+            android:exported="false" />
+
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -40,6 +41,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+       
+
     </application>
 
 </manifest>
