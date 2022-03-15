@@ -3,4 +3,8 @@
     <string name="password_blank">senha não pode ser vazia</string>
     <string name="email_blank">E-mail não pode estar vazio</string>
     <string name="email_invalid">E-mail inválido</string>
+
+   //Preferences
+    <string name="preference_list_responsibles">responsibles</string>
+
 </resources>

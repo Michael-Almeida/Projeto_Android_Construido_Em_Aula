@@ -22,7 +22,7 @@ class MainSectionPagerAdapter(fm: FragmentManager, private val lifecycle: Lifecy
             0 -> createFragmentWithSectionNumber(ResumeFragment(),position)
             1 -> createFragmentWithSectionNumber(ResumeFragment(),position)
             2 -> createFragmentWithSectionNumber(ResumeFragment(), position)
-            else -> throw IllegalAccessException("POsição desconhecida")
+            else -> throw IllegalAccessException("Posição desconhecida")
         }
     }
 

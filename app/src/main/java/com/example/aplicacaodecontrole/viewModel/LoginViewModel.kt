@@ -1,6 +1,5 @@
 package com.example.aplicacaodecontrole.viewModel
 
-import android.content.Intent
 import android.util.Patterns
 import android.view.View
 import androidx.databinding.Bindable
@@ -11,14 +10,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.aplicacaodecontrole.Model.Result
+import com.example.aplicacaodecontrole.Model.Login
 import com.example.aplicacaodecontrole.Model.User
 import com.example.aplicacaodecontrole.repository.LoginRepository
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.time.Duration
-import java.util.regex.Pattern
 
 //lateinit = inicia a variável depois
 
@@ -65,8 +61,8 @@ class LoginViewModel(val repository: LoginRepository) : ViewModel(), Observable 
 
             var result = repository.login(userLogin, userPassword)
             when (result){
-                is Result.sucess<User> -> redirect.postValue(true)
-                is Result.error -> showError(result.exception.message)
+                is Result.Sucess<User> -> redirect.postValue(true)
+                is Result.Error -> showError(result.exception.message)
             }
 
             loadVisibility = View.GONE

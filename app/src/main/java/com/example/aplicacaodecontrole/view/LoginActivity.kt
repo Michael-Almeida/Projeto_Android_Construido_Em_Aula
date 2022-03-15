@@ -24,12 +24,13 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val loginBinding: ActivityLoginBinding = DataBindingUtil.setContentView(
-            this, R.layout.activity_login)
+            this, R.layout.activity_login
+        )
         loginBinding.viewModel = loginViewModel
         redirectToMainActivity()
-        loginViewModel.userLogin = "admin@admin.com"
-        loginViewModel.userPassword = "pass"
-        loginViewModel.doLogin()
+//        loginViewModel.userLogin = "admin@admin.com"
+//        loginViewModel.userPassword = "pass"
+//        loginViewModel.doLogin()
     }
 
     fun redirectToMainActivity() {
@@ -53,6 +54,7 @@ class LoginActivity : AppCompatActivity() {
                     getString(R.string.password_blank)
                 loginViewModel.userLogin.isBlank() -> usernameET.error =
                     getString(R.string.email_blank)
+
                 else -> usernameET.error = getString(R.string.email_invalid)
             }
         }

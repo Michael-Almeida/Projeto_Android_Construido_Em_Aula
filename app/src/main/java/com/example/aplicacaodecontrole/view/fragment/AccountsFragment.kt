@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.example.aplicacaodecontrole.R
+import com.example.aplicacaodecontrole.repository.AccountRepository
+import com.example.aplicacaodecontrole.view.adapter.AccountAdapter
 import com.example.aplicacaodecontrole.viewModel.AccountsViewModel
 import kotlinx.android.synthetic.main.fragment_resume.*
 
@@ -22,16 +25,23 @@ class AccountsFragment : Fragment() {
         }
     }
 
+    val accountRespository = AccountRepository()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         val root = inflater.inflate(R.layout.fragment_accounts, container, false)
 
         accountsViewModel.text.observe(viewLifecycleOwner) {
             section_label.text = it
         }
+
+        val recycleView = root.findViewById<RecyclerView>(R.id.accounts_rv)
+        recycleView.adapter = AccountAdapter(accountRespository.getAllAcounts())
+
+
         return root
     }
 
