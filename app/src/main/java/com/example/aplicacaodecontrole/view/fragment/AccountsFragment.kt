@@ -25,7 +25,6 @@ class AccountsFragment : Fragment() {
         }
     }
 
-    val accountRespository = AccountRepository()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +38,7 @@ class AccountsFragment : Fragment() {
         }
 
         val recycleView = root.findViewById<RecyclerView>(R.id.accounts_rv)
-        recycleView.adapter = AccountAdapter(accountRespository.getAllAcounts())
+        recycleView.adapter = AccountAdapter(emptyList())
 
 
         return root

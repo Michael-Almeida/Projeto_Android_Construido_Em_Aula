@@ -1,12 +1,15 @@
 package com.example.aplicacaodecontrole.viewModel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
+import androidx.databinding.Bindable
+import androidx.lifecycle.*
+import com.example.aplicacaodecontrole.Model.Account
+import com.example.aplicacaodecontrole.Model.AccountTypeEnum
+import com.example.aplicacaodecontrole.Model.Responsible
 import com.example.aplicacaodecontrole.repository.AccountRepository
+import kotlinx.coroutines.launch
+import java.math.BigDecimal
 
-class AccountsViewModel : ViewModel() {
+class AccountsViewModel(val accountRepository: AccountRepository) : BaseViewModel() {
 
     private val index = MutableLiveData<Int>()
     val text: LiveData<String> = Transformations.map(index) {
@@ -17,6 +20,24 @@ class AccountsViewModel : ViewModel() {
         this.index.value = index
     }
 
-    fun getAccounts() = AccountRepository().getAllAcounts()
+    //fun getAccounts() = AccountRepository().getAllAcounts()
 
+    //salvando responsavel
+    @Bindable
+    var name: String = ""
+
+    @Bindable
+    var balance: BigDecimal = BigDecimal.ZERO
+
+    @Bindable
+    var responsible = Responsible(name)
+
+    @Bindable
+    var accountType = AccountTypeEnum.DEBITO
+
+    fun saveAccout() = viewModelScope.launch {
+        val account = Account(name, balance, responsible, accountType)
+
+        accountRepository.save(account)
+    }
 }

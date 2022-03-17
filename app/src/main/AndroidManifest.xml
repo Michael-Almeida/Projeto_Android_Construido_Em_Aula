@@ -12,11 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AplicacaoDeControle">
-
+        <activity
+            android:name=".view.AccountActivity"
+            android:exported="false" />
         <activity
             android:name=".view.ResponsableActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.SplashScreenActivity"
             android:exported="true"
@@ -27,11 +28,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -42,8 +41,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

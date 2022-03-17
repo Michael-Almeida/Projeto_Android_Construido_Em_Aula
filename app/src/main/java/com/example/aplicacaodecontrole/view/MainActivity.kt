@@ -62,7 +62,11 @@ class MainActivity : AppCompatActivity() {
                 //adiciona a tela
                 true
             }
-            R.id.new_account -> true
+            R.id.new_account -> {
+                val intent = Intent(applicationContext, AccountActivity::class.java)
+                startActivity(intent)
+                true
+            }
             R.id.new_transaction -> true
             R.id.configurations -> true
             else -> super.onOptionsItemSelected(item)

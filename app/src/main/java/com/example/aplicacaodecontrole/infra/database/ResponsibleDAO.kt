@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.aplicacaodecontrole.Model.Account
 import com.example.aplicacaodecontrole.Model.Responsible
 
 @Dao
@@ -19,4 +20,7 @@ interface ResponsibleDAO {
 
     @Query("SELECT * FROM Responsible")
     fun getAllResponsibles(): List<Responsible>
+
+
+
 }
